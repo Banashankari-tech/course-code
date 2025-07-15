@@ -1,0 +1,176 @@
+Contact page & support
+1.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Support</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <div class="contact-wrapper">
+    <h1>Contact & Support</h1>
+    <p>Need help? Fill out the form or reach us via chat below.</p>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="subject" placeholder="Subject" required />
+      <textarea id="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="successMsg"></p>
+    </form>
+
+    <!-- Live Chat Links -->
+    <div class="chat-links">
+      <h3>Live Chat Support</h3>
+      <a href="https://wa.me/919876543210" target="_blank">💬 WhatsApp Chat</a>
+      <a href="https://t.me/yourtelegrambot" target="_blank">📨 Telegram Chat</a>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="faq-section">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq">
+        <button class="faq-question">How do I enroll in a course?</button>
+        <div class="faq-answer">Click “Enroll Now” on the course card. All courses cost just ₹1.</div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Can I contact support anytime?</button>
+        <div class="faq-answer">Yes, we are available 24/7 via WhatsApp and Telegram.</div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">Will I get a certificate?</button>
+        <div class="faq-answer">Yes, you will receive a certificate after completing any course.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="contact.js"></script>
+</body>
+</html>
+
+2.css
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+}
+
+.contact-wrapper {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h3 {
+  color: #333;
+  text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+#successMsg {
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+}
+
+.chat-links {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.chat-links a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.chat-links a:hover {
+  background: #1ca44f;
+}
+
+.chat-links a:nth-child(3) {
+  background: #0088cc;
+}
+
+.faq-section {
+  margin-top: 40px;
+}
+
+.faq {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #eee;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px;
+  background: #f9f9f9;
+  border-left: 4px solid #007bff;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+3.java script
+
+// Handle form submission
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.getElementById("successMsg").textContent = "✅ Your message has been sent!";
+  this.reset();
+});
+
+// FAQ toggling
+const questions = document.querySelectorAll('.faq-question');
+questions.forEach(q => {
+  q.addEventListener('click', () => {
+    const answer = q.nextElementSibling;
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+  });
+});
